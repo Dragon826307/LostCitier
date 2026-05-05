@@ -57,10 +57,6 @@ jobs:
         with:
           path: release-assets/
           merge-multiple: true
-      - name: Package source code
-        run: |
-          zip -r source-code.zip .
-          tar -czf source-code.tar.gz .
       - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v2
         with:
