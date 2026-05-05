@@ -60,7 +60,6 @@ jobs:
       - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v0.1
-          name: LostCitier ${{ github.ref_name }}
+          name: LostCitier v0.1
           files: release-assets/**/*
           fail_on_unmatched_files: false
