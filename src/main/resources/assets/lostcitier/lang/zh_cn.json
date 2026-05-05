@@ -1,0 +1,19 @@
+{
+  "key.lostcitier.light_puzzle": "异形点灯求解器",
+  "key.category.minecraft.lostcitier.general":"遗城",
+  "lostcitier.light_puzzle.size":"大小:%s",
+  "lostcitier.light_puzzle.size_confirm":"确定",
+  "lostcitier.light_puzzle.reset_all":"重置所有",
+  "lostcitier.light_puzzle.exit":"退出",
+  "lostcitier.light_puzzle.current_size":"当前大小:%d",
+  "lostcitier.light_puzzle.start_solving":"开始求解",
+  "lostcitier.light_puzzle.message_0":"异形点灯求解器",
+  "lostcitier.light_puzzle.message_1":"点击按钮至正确的",
+  "lostcitier.light_puzzle.message_2":"状态并开始求解",
+  "lostcitier.light_puzzle.message_3":"0=灯灭",
+  "lostcitier.light_puzzle.message_4":"1=灯亮",
+  "lostcitier.light_puzzle.message_5":"X=空白",
+  "lostcitier.light_puzzle.message_no_solution":"无解，请检查输入！",
+  "lostcitier.light_puzzle.message_has_solution":"找到解法！按照以下步骤点击",
+  "lostcitier.light_puzzle.message_solution_step":"行 %d | 列 %d"
+}

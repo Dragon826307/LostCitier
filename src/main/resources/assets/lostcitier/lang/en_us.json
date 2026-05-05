@@ -1,0 +1,19 @@
+{
+  "key.lostcitier.light_puzzle": "Light Puzzle",
+  "key.category.minecraft.lostcitier.general":"Lost City",
+  "lostcitier.light_puzzle.size":"Size:%s",
+  "lostcitier.light_puzzle.size_confirm":"Confirm",
+  "lostcitier.light_puzzle.reset_all":"RESET ALL",
+  "lostcitier.light_puzzle.exit":"exit",
+  "lostcitier.light_puzzle.current_size":"current size:%d",
+  "lostcitier.light_puzzle.start_solving":"Start solving",
+  "lostcitier.light_puzzle.message_0":"Light Puzzle Solver",
+  "lostcitier.light_puzzle.message_1":"Click the button to the correct",
+  "lostcitier.light_puzzle.message_2":"state and start solving",
+  "lostcitier.light_puzzle.message_3":"0=Light off",
+  "lostcitier.light_puzzle.message_4":"1=Light on",
+  "lostcitier.light_puzzle.message_5":"X=Empty",
+  "lostcitier.light_puzzle.message_no_solution":"No solution, please check the input.",
+  "lostcitier.light_puzzle.message_has_solution":"Solution Found! Click on the following grid",
+  "lostcitier.light_puzzle.message_solution_step":"Row %d | Column %d"
+}

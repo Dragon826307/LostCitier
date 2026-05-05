@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "lostcitier",
+	"version": "${version}",
+	"name": "LostCitier",
+	"description": "存在瓦解，物质生灭，熵因逆转，演化终结",
+	"authors": [
+		"Dragon826307"
+	],
+	"contact": {
+		"homepage": "https://github.com/Dragon826307/LostCitier",
+		"sources": "https://github.com/Dragon826307/LostCitier"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/lostcitier/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.dragon826307.lostcity.LostCitier"
+		],
+		"client": [
+			"com.dragon826307.lostcity.client.LostCitierClient"
+		]
+	},
+	"mixins": [
+		"lostcitier.mixins.json",
+		{
+			"config": "lostcitier.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": ">=1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
