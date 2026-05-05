@@ -8,14 +8,16 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.glfw.GLFW;
 
 public class LostCitierClient implements ClientModInitializer {
+    public static final KeyMapping.Category LOSTCITY = new KeyMapping.Category(ResourceLocation.withDefaultNamespace("lostcitier.general"));
     public static KeyMapping openGuiKey;
 	@Override
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
-        openGuiKey = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.lostcitier.light_puzzle", InputConstants.Type.KEYSYM,GLFW.GLFW_KEY_O,"key.category.minecraft.lostcitier.general"));
+        openGuiKey = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.lostcitier.light_puzzle", InputConstants.Type.KEYSYM,GLFW.GLFW_KEY_O, LOSTCITY));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openGuiKey.consumeClick()){
                 client.setScreen(new LightPuzzleGui(Component.literal("LightPuzzleGui")));
