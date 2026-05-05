@@ -7,11 +7,18 @@ name: PUBLISH
 on: [pull_request, push]
 
 jobs:
-  build:
+  build-matrix:
+    strategy:
+      matrix:
+        mc_version: [master,1.21.6,1.21.9,1.21.11]
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
+      - name: Checkout ${{ matrix.mc_version }} branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{matrix.mc_version}}
       - name: checkout repository
         uses: actions/checkout@v6
       - name: validate gradle wrapper
@@ -30,14 +37,33 @@ jobs:
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build
-      - name: capture build artifacts
+      - name: upload ${{matrix.mc_version}} artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: Artifacts
-          path: build/libs/
-      - name: publish
-        uses: Kir-Antipov/mc-publish@v3.3
+          name: artifacts-${{ matrix.mc_version }}
+          path: build/libs/*.jar
+  create-release:
+    needs: build-matrix
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout for source
+        uses: actions/checkout@v4
+      - name: Download all built JARs
+        uses: actions/download-artifact@v4
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          gitHub-tag: v0.1
-          name: LostCitier-0.1
+          path: all-artifacts/
+          merge-multiple: true
+      - name: Package source code
+        run: |
+          zip -r source-code.zip .
+          tar -czf source-code.tar.gz .
+          mv source-code.zip all-artifacts/
+          mv source-code.tar.gz all-artifacts/
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          files: all-artifacts/**/*
+          fail_on_unmatched_files: false
