@@ -39,3 +39,5 @@ jobs:
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
+          gitHub-tag: v0.1
+          name: LostCitier-0.1
