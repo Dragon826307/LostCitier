@@ -9,14 +9,16 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+  actions: read
+
 jobs:
   build-matrix:
     strategy:
       matrix:
-        mc_version: [master,1.21.6,1.21.9,1.21.11]
+        mc_version: [master, 1.21.6, 1.21.9, 1.21.11]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout ${{ matrix.mc_version }} branch
         uses: actions/checkout@v4
@@ -65,4 +67,4 @@ jobs:
         with:
           name: LostCitier ${{github.ref_name}}
           files: release-assets/**/*
-          fail_on_unmatched_files: false
+          fail_on_unmatched_files: true
