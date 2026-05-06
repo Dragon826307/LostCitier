@@ -4,7 +4,10 @@
 # against bad commits.
 
 name: PUBLISH
-on: [pull_request, push]
+on:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   build-matrix:
@@ -60,6 +63,6 @@ jobs:
       - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v2
         with:
-          name: LostCitier v0.1
+          name: LostCitier ${{github.ref_name}}
           files: release-assets/**/*
           fail_on_unmatched_files: false
