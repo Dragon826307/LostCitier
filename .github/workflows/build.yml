@@ -49,6 +49,8 @@ jobs:
     needs: build-matrix
     runs-on: ubuntu-latest
     steps:
+      - name: check out
+        uses: actions/checkout@v4
       - name: Prepare release assets directory
         run: mkdir -p release-assets
       - name: Download all built JARs
