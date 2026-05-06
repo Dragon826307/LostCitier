@@ -1,9 +1,24 @@
 # LostCitier
 
-## Setup
+*为windmilltown《遗城》打造的纯客户端模组！*
 
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+---
 
-## License
+# 更新日志🚀
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+**v0.1.1**
+· 替换开源协议为LGPL-3.0
+· Fabric-Loader最低需求版本改为0.18.0
+· 修复1.21.6-1.21.8版本无法构建的问题
+
+**v0.1**
+· 添加F3休息室的点灯游戏求解器
+
+---
+
+---
+
+---
+
+**『梦开始的地方...』**
+
