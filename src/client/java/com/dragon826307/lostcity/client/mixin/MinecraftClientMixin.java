@@ -2,6 +2,7 @@ package com.dragon826307.lostcity.client.mixin;
 
 import com.dragon826307.lostcity.client.util.ClientWorldEvents;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.ReceivingLevelScreen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,11 +15,11 @@ public class MinecraftClientMixin {
 	private void init(CallbackInfo info) {
 		// This code is injected into the start of Minecraft.run()V
 	}
-    @Inject(method = "setWorld", at = @At("TAIL"))
-    private void afterClientWorldChange(ClientLevel world, CallbackInfo ci) {
-        if (world != null) {
+    @Inject(method = "setLevel", at = @At("TAIL"))
+    private void afterClientWorldChange(ClientLevel clientLevel, ReceivingLevelScreen.Reason reason, CallbackInfo ci) {
+        if (clientLevel != null) {
             Minecraft client = (Minecraft) (Object) this;
-            ClientWorldEvents.AFTER_CLIENT_WORLD_CHANGE.invoker().afterWorldChange(client, world);
+            ClientWorldEvents.AFTER_CLIENT_WORLD_CHANGE.invoker().afterWorldChange(client, clientLevel);
         }
     }
 }

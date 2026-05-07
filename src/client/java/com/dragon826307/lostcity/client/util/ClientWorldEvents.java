@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 
+//这个版本的fabric api没有ClientWorldEvents
+//所以从高版本复制过来（
 public final class ClientWorldEvents {
     private ClientWorldEvents() {
     }
