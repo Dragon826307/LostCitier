@@ -1,6 +1,7 @@
 package com.dragon826307.lostcity.client;
 
 import com.dragon826307.lostcity.client.light_puzzle.LightPuzzleGui;
+import com.dragon826307.lostcity.client.util.ClientWorldEvents;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import net.fabricmc.api.ClientModInitializer;
@@ -17,13 +18,12 @@ import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.glfw.GLFW;
 
 public class LostCitierClient implements ClientModInitializer {
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
     protected Minecraft minecraft ;
     public static final Component ModID = Component.empty().append("[").append(Component.literal("LostCitier").withStyle(ChatFormatting.BLUE,ChatFormatting.BOLD)).append("]");
     public static KeyMapping openGuiKey;
 	@Override
 	public void onInitializeClient() {
-		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
         openGuiKey = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.lostcitier.light_puzzle", InputConstants.Type.KEYSYM,GLFW.GLFW_KEY_O,"key.category.minecraft.lostcitier.general"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openGuiKey.consumeClick()){
