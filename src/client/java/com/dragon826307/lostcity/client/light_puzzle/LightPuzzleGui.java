@@ -7,6 +7,7 @@ import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import org.jetbrains.annotations.NotNull;
 
 public class LightPuzzleGui extends Screen {
     private static double d = 0;
@@ -69,9 +70,9 @@ public class LightPuzzleGui extends Screen {
             boolean[] solutionVector = LightPuzzleSolver.lightPuzzleSolver(correct_light);
             if (this.minecraft != null) {
                 if (solutionVector==null) {
-                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.modID()).append(Component.translatable("lostcitier.light_puzzle.message_no_solution").withStyle(ChatFormatting.RED,ChatFormatting.BOLD)));
+                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.ModID).append(Component.translatable("lostcitier.light_puzzle.message_no_solution").withStyle(ChatFormatting.RED,ChatFormatting.BOLD)));
                 }else {
-                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.modID()).append(Component.translatable("lostcitier.light_puzzle.message_has_solution").withStyle(ChatFormatting.GREEN,ChatFormatting.BOLD)
+                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.ModID).append(Component.translatable("lostcitier.light_puzzle.message_has_solution").withStyle(ChatFormatting.GREEN,ChatFormatting.BOLD)
                     ));
                     int i = 0;
                     for (boolean b : solutionVector) {
@@ -86,7 +87,7 @@ public class LightPuzzleGui extends Screen {
 
     //文字渲染
     @Override
-    public void render(GuiGraphics guiGraphics, int i, int j, float f) {
+    public void render(@NotNull GuiGraphics guiGraphics, int i, int j, float f) {
         super.render(guiGraphics, i, j, f);
         guiGraphics.pose().pushMatrix();
         guiGraphics.pose().translate(this.width-97,26);
