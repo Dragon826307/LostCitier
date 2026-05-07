@@ -40,16 +40,14 @@ public class LostCitierClient implements ClientModInitializer {
             }
         }});
         //指令注册
-        ClientCommandRegistrationCallback.EVENT.register(((commandDispatcher, commandBuildContext) -> {
-            commandDispatcher.register(ClientCommandManager.literal("lostcitier").then(ClientCommandManager.literal("debug").then(ClientCommandManager.argument("debug", BoolArgumentType.bool()).executes(context -> {
-                DEBUG = BoolArgumentType.getBool(context, "debug");
-                minecraft.gui.getChat().addMessage(Component.literal(DEBUG ? "Debug Mode on" : "Debug Mode off"));
-                return 1;
-            }))).then(ClientCommandManager.literal("debug").executes(context -> {
-                DEBUG = !DEBUG;
-                minecraft.gui.getChat().addMessage(Component.literal(DEBUG ? "Debug Mode on" : "Debug Mode off"));
-                return 1;
-            })));
-        }));
+        ClientCommandRegistrationCallback.EVENT.register(((commandDispatcher, commandBuildContext) -> commandDispatcher.register(ClientCommandManager.literal("lostcitier").then(ClientCommandManager.literal("debug").then(ClientCommandManager.argument("debug", BoolArgumentType.bool()).executes(context -> {
+            DEBUG = BoolArgumentType.getBool(context, "debug");
+            minecraft.gui.getChat().addMessage(Component.literal(DEBUG ? "Debug Mode on" : "Debug Mode off"));
+            return 1;
+        }))).then(ClientCommandManager.literal("debug").executes(context -> {
+            DEBUG = !DEBUG;
+            minecraft.gui.getChat().addMessage(Component.literal(DEBUG ? "Debug Mode on" : "Debug Mode off"));
+            return 1;
+        })))));
 	}
 }
