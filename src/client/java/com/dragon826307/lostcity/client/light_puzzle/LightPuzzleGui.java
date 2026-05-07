@@ -69,9 +69,9 @@ public class LightPuzzleGui extends Screen {
             boolean[] solutionVector = LightPuzzleSolver.lightPuzzleSolver(correct_light);
             if (this.minecraft != null) {
                 if (solutionVector==null) {
-                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.modID()).append(Component.translatable("lostcitier.light_puzzle.message_no_solution").withStyle(ChatFormatting.RED,ChatFormatting.BOLD)));
+                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.ModID).append(Component.translatable("lostcitier.light_puzzle.message_no_solution").withStyle(ChatFormatting.RED,ChatFormatting.BOLD)));
                 }else {
-                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.modID()).append(Component.translatable("lostcitier.light_puzzle.message_has_solution").withStyle(ChatFormatting.GREEN,ChatFormatting.BOLD)
+                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.ModID).append(Component.translatable("lostcitier.light_puzzle.message_has_solution").withStyle(ChatFormatting.GREEN,ChatFormatting.BOLD)
                     ));
                     int i = 0;
                     for (boolean b : solutionVector) {
