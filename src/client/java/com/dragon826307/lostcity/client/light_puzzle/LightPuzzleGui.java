@@ -19,6 +19,12 @@ public class LightPuzzleGui extends Screen {
     public LightPuzzleGui(Component title) {
         super(title);
     }
+    private static final Component MESSAGE_0 = Component.translatable("lostcitier.light_puzzle.message_0");
+    private static final Component MESSAGE_1 = Component.translatable("lostcitier.light_puzzle.message_1");
+    private static final Component MESSAGE_2 = Component.translatable("lostcitier.light_puzzle.message_2");
+    private static final Component MESSAGE_3 = Component.translatable("lostcitier.light_puzzle.message_3");
+    private static final Component MESSAGE_4 = Component.translatable("lostcitier.light_puzzle.message_4");
+    private static final Component MESSAGE_5 = Component.translatable("lostcitier.light_puzzle.message_5");
     @Override
     protected void init() {
         super.init();
@@ -91,13 +97,13 @@ public class LightPuzzleGui extends Screen {
         guiGraphics.pose().pushMatrix();
         guiGraphics.pose().translate(this.width-97,26);
         guiGraphics.pose().scale(0.9f,0.9f);
-        guiGraphics.drawString(this.font,Component.translatable("lostcitier.light_puzzle.message_0"), 0, 0,0xFFFFFFFF);
-        guiGraphics.drawString(this.font,Component.translatable("lostcitier.light_puzzle.message_3"), 0, 30,0xFFFFFFFF);
-        guiGraphics.drawString(this.font,Component.translatable("lostcitier.light_puzzle.message_4"), 0, 40,0xFFFFFFFF);
-        guiGraphics.drawString(this.font,Component.translatable("lostcitier.light_puzzle.message_5"), 0, 50,0xFFFFFFFF);
+        guiGraphics.drawString(this.font,MESSAGE_0, 0, 0,0xFFFFFFFF);
+        guiGraphics.drawString(this.font,MESSAGE_3, 0, 30,0xFFFFFFFF);
+        guiGraphics.drawString(this.font,MESSAGE_4, 0, 40,0xFFFFFFFF);
+        guiGraphics.drawString(this.font,MESSAGE_5, 0, 50,0xFFFFFFFF);
         guiGraphics.pose().scale(0.65f,0.65f);
-        guiGraphics.drawString(this.font,Component.translatable("lostcitier.light_puzzle.message_1"), 0, 20,0xFFFFFFFF);
-        guiGraphics.drawString(this.font,Component.translatable("lostcitier.light_puzzle.message_2"), 0, 30,0xFFFFFFFF);
+        guiGraphics.drawString(this.font,MESSAGE_1, 0, 20,0xFFFFFFFF);
+        guiGraphics.drawString(this.font,MESSAGE_2, 0, 30,0xFFFFFFFF);
         guiGraphics.pose().translate(-this.width*0.8547f+132, (float) (this.height*0.8547f-52-Size*13.8));
         guiGraphics.drawString(this.font,Component.translatable("lostcitier.light_puzzle.current_size",Size),0,0,0xFFFFFFFF);
         guiGraphics.pose().popMatrix();
