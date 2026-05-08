@@ -16,7 +16,7 @@ import net.minecraft.network.chat.Component;
 import org.lwjgl.glfw.GLFW;
 
 public class LostCitierClient implements ClientModInitializer {
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     protected Minecraft minecraft ;
     public static final Component ModID = Component.empty().append("[").append(Component.literal("LostCitier").withStyle(ChatFormatting.BLUE,ChatFormatting.BOLD)).append("]");
     public static KeyMapping openGuiKey;
