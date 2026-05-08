@@ -68,17 +68,16 @@ public class LightPuzzleGui extends Screen {
                 System.arraycopy(light[x], 0, correct_light[x], 0, Size);
             }
             boolean[] solutionVector = LightPuzzleSolver.lightPuzzleSolver(correct_light);
-            if (this.minecraft != null) {
-                if (solutionVector==null) {
-                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.ModID).append(Component.translatable("lostcitier.light_puzzle.message_no_solution").withStyle(ChatFormatting.RED,ChatFormatting.BOLD)));
-                }else {
-                    this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.ModID).append(Component.translatable("lostcitier.light_puzzle.message_has_solution").withStyle(ChatFormatting.GREEN,ChatFormatting.BOLD)
-                    ));
-                    int i = 0;
-                    for (boolean b : solutionVector) {
-                        if (b) this.minecraft.gui.getChat().addMessage(Component.translatable("lostcitier.light_puzzle.message_solution_step",i%Size,i/Size));
-                        i++;
-                    }
+            if (solutionVector == null) {
+                this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.ModID).append(Component.translatable("lostcitier.light_puzzle.message_no_solution").withStyle(ChatFormatting.RED, ChatFormatting.BOLD)));
+            } else {
+                this.minecraft.gui.getChat().addMessage(Component.empty().append(LostCitierClient.ModID).append(Component.translatable("lostcitier.light_puzzle.message_has_solution").withStyle(ChatFormatting.GREEN, ChatFormatting.BOLD)
+                ));
+                int i = 0;
+                for (boolean b : solutionVector) {
+                    if (b)
+                        this.minecraft.gui.getChat().addMessage(Component.translatable("lostcitier.light_puzzle.message_solution_step", i % Size, i / Size));
+                    i++;
                 }
             }
         }).pos(2,2).size(80,20).build();
