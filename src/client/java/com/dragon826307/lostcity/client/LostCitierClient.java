@@ -59,7 +59,7 @@ public class LostCitierClient implements ClientModInitializer {
             //noinspection DataFlowIssue
             String serverIP = minecraft.getCurrentServer().ip;
             if (debugMode) minecraft.gui.getChat().addMessage(Component.literal(serverIP));
-            if (serverIP.endsWith("t")){
+            if (serverIP.endsWith("windmilltown.net")){
                 TRY_TO_CHECK_SERVER = true;
                 check_sub_server_time = System.currentTimeMillis();
                 //noinspection DataFlowIssue
