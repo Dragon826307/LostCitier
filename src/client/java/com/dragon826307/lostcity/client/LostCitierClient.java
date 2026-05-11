@@ -55,16 +55,15 @@ public class LostCitierClient implements ClientModInitializer {
                 client.setScreen(new LightPuzzleGui(Component.literal("LightPuzzleGui")));
             }
         });
-        //玩家跨服事件监听
-        ClientPlayConnectionEvents.JOIN.register((clientPacketListener, packetSender, minecraft) -> {
-            //noinspection DataFlowIssue
-            String serverIP = minecraft.getCurrentServer().ip;
-            if (debugMode) minecraft.gui.getChat().addMessage(Component.literal(serverIP));
-            if (serverIP.endsWith("t")){
-                TRY_TO_CHECK_SERVER = true;
-                check_sub_server_time = System.currentTimeMillis();
-                //noinspection DataFlowIssue
-                minecraft.getConnection().send(new ServerboundChatCommandPacket("server"));
+        //玩家跨越维度事件监听
+        ClientWorldEvents.AFTER_CLIENT_WORLD_CHANGE.register((minecraft, world) -> {
+            this.minecraft = minecraft;
+            if (!minecraft.isLocalServer()){
+                if (DEBUG){
+                    minecraft.gui.getChat().addMessage(Component.empty().append("[Debug]").append(world.dimension().location().toString()));
+//                    if (minecraft.getChatStatus()){
+                    minecraft.gui.getChat().addMessage(Component.empty().append("[Debug]").append(minecraft.getChatStatus().getMessage()));
+//                }
             }
         });
         //指令注册
