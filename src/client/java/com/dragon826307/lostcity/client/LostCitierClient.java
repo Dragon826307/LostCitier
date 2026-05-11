@@ -44,7 +44,7 @@ public class LostCitierClient implements ClientModInitializer {
         //按键监听
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             minecraft = client;
-            if (minecraft != null && minecraft.level != null && minecraft.level.getGameTime() % 20 == 0) {
+            if (minecraft.level != null && minecraft.level.getGameTime() % 20 == 0) {
                 //noinspection DataFlowIssue
                 if (minecraft.getConnection() != null && minecraft.level.getGameTime() % 100 == 0) {
                     tickPer5Second();
@@ -61,9 +61,7 @@ public class LostCitierClient implements ClientModInitializer {
             if (!minecraft.isLocalServer()){
                 if (DEBUG){
                     minecraft.gui.getChat().addMessage(Component.empty().append("[Debug]").append(world.dimension().location().toString()));
-//                    if (minecraft.getChatStatus()){
                     minecraft.gui.getChat().addMessage(Component.empty().append("[Debug]").append(minecraft.getChatStatus().getMessage()));
-//                }
             }
         });
         //指令注册

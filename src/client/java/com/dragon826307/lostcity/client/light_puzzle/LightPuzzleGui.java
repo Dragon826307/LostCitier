@@ -95,19 +95,19 @@ public class LightPuzzleGui extends Screen {
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int i, int j, float f) {
         super.render(guiGraphics, i, j, f);
-        Render.pushMatrix(guiGraphics);
-        Render.translate(guiGraphics,this.width-97,26);
-        Render.scale(guiGraphics,0.9f,0.9f);
+        Render.pushPose(guiGraphics);
+        Render.translate(guiGraphics,this.width-97,26,1);
+        Render.scale(guiGraphics,0.9f,0.9f,1);
         Render.text(guiGraphics,MESSAGE_0, 0, 0,0xFFFFFFFF);
         Render.text(guiGraphics,MESSAGE_3, 0, 30,0xFFFFFFFF);
         Render.text(guiGraphics,MESSAGE_4, 0, 40,0xFFFFFFFF);
         Render.text(guiGraphics,MESSAGE_5, 0, 50,0xFFFFFFFF);
-        Render.scale(guiGraphics,0.65f,0.65f);
+        Render.scale(guiGraphics,0.65f,0.65f,1);
         Render.text(guiGraphics,MESSAGE_1, 0, 20,0xFFFFFFFF);
         Render.text(guiGraphics,MESSAGE_2, 0, 30,0xFFFFFFFF);
-        Render.translate(guiGraphics,-this.width*0.8547f+132, (float) (this.height*0.8547f-52-Size*13.8));
+        Render.translate(guiGraphics,-this.width*0.8547f+132, (float) (this.height*0.8547f-52-Size*13.8),1);
         Render.text(guiGraphics,Component.translatable("lostcitier.light_puzzle.current_size",Size),0,0,0xFFFFFFFF);
-        Render.popMatrix(guiGraphics);
+        Render.popPose(guiGraphics);
     }
 
     @Override
