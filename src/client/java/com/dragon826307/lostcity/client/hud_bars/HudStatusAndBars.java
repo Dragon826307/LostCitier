@@ -2,10 +2,14 @@ package com.dragon826307.lostcity.client.hud_bars;
 
 import com.dragon826307.lostcity.client.LostCitierClient;
 import com.dragon826307.lostcity.client.util.Render;
+import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+
+import javax.swing.*;
 
 public class HudStatusAndBars {
     private static Player player;
