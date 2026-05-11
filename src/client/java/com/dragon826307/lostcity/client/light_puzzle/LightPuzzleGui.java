@@ -105,7 +105,7 @@ public class LightPuzzleGui extends Screen {
         Render.scale(guiGraphics,0.65f,0.65f,1);
         Render.text(guiGraphics,MESSAGE_1, 0, 20,0xFFFFFF);
         Render.text(guiGraphics,MESSAGE_2, 0, 30,0xFFFFFF);
-        Render.translate(guiGraphics,-this.width*0.8547f+132, (this.height*0.8547f-52-Size*13.8),0);
+        Render.translate(guiGraphics,-this.width*0.8547f+132, this.height*0.8547f-52-Size*13.8,0);
         Render.text(guiGraphics,Component.translatable("lostcitier.light_puzzle.current_size",Size),0,0,0xFFFFFF);
         Render.popPose(guiGraphics);
     }
