@@ -12,9 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Minecraft.class)
 public class MinecraftClientMixin {
 	@Inject(at = @At("HEAD"), method = "run")
-	private void init(CallbackInfo info) {
-		// This code is injected into the start of Minecraft.run()V
-	}
+	private void init(CallbackInfo info) {}
     @Inject(method = "setLevel", at = @At("TAIL"))
     private void afterClientWorldChange(ClientLevel clientLevel, ReceivingLevelScreen.Reason reason, CallbackInfo ci) {
         if (clientLevel != null) {
