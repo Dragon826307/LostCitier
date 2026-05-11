@@ -54,9 +54,7 @@ public class LostCitierClient implements ClientModInitializer {
         //玩家跨服事件监听
         ClientPlayConnectionEvents.JOIN.register((clientPacketListener, packetSender, minecraft) -> {
             //noinspection DataFlowIssue
-            String serverIP = minecraft.getCurrentServer().ip;
-            if (debugMode) minecraft.gui.getChat().addMessage(Component.literal(serverIP));
-            if (serverIP.endsWith("t")){
+            if (!minecraft.isLocalServer() && minecraft.getCurrentServer().ip.endsWith("windmilltown.net")) {
                 TRY_TO_CHECK_SERVER = true;
                 check_sub_server_time = System.currentTimeMillis();
                 //noinspection DataFlowIssue
