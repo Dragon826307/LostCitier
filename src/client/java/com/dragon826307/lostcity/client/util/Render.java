@@ -24,7 +24,8 @@ public class Render {
         guiGraphics.pose().scale(x,y,z);
     }
     public static void setColor(GuiGraphics guiGraphics,float r,float g,float b,float a){
-       RenderSystem.setShaderColor(r,g,b,a);
+        guiGraphics.flush();
+        RenderSystem.setShaderColor(r,g,b,a);
     }
     public static void blit(ResourceLocation location,GuiGraphics guiGraphics,int i,int j,int k,int l,int m,int n,int o,int p){
         guiGraphics.blit(RenderType::guiTextured,location,i,j,k,l,m,n,o,p);
