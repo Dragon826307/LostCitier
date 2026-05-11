@@ -2,10 +2,8 @@ package com.dragon826307.lostcity.client.hud_bars;
 
 import com.dragon826307.lostcity.client.LostCitierClient;
 import com.dragon826307.lostcity.client.util.Render;
-import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
@@ -13,13 +11,13 @@ import javax.swing.*;
 
 public class HudStatusAndBars {
     private static Player player;
-    private static final ResourceLocation BAR_BACK = ResourceLocation.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/bar_back.png");
-    private static final ResourceLocation BAR_FILL = ResourceLocation.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/bar_fill.png");
-    private static final ResourceLocation HEART = ResourceLocation.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/full.png");
-    private static final ResourceLocation ABSORPTION = ResourceLocation.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/absorbing_full.png");
-    private static final ResourceLocation FOOD = ResourceLocation.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/food_full.png");
-    private static final ResourceLocation VEHICLE = ResourceLocation.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/vehicle_full.png");
-    private static final ResourceLocation DEFENSE = ResourceLocation.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/armor_full.png");
+    private static final Identifier BAR_BACK = Identifier.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/bar_back.png");
+    private static final Identifier BAR_FILL = Identifier.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/bar_fill.png");
+    private static final Identifier HEART = Identifier.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/full.png");
+    private static final Identifier ABSORPTION = Identifier.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/absorbing_full.png");
+    private static final Identifier FOOD = Identifier.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/food_full.png");
+    private static final Identifier VEHICLE = Identifier.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/vehicle_full.png");
+    private static final Identifier DEFENSE = Identifier.fromNamespaceAndPath(LostCitierClient.mod_id,"textures/gui/hud/armor_full.png");
     private static int FoodBarLeft;
     private static int FoodBarTop;
     public static float DefenseAmount;
@@ -52,7 +50,7 @@ public class HudStatusAndBars {
         Render.text(guiGraphics, Math.round(player.getHealth() * 100) / 100f + "/" +Math.round(maxHealth),left+9,top-4,0xFF0000);
         Render.setColor(guiGraphics,1,1,1,1);
         DefenseRender(guiGraphics,left,top);
-        if (player.getAbsorptionAmount()>0)guiGraphics.pose().translate(0,6,0);
+        if (player.getAbsorptionAmount()>0)Render.translate(guiGraphics,0,6,0);
         Render.popPose(guiGraphics);
     }
     public static void vehicleHealthBarAndFoodBarRender(GuiGraphics guiGraphics){
@@ -83,7 +81,7 @@ public class HudStatusAndBars {
         }
         Render.blit(FOOD,guiGraphics,FoodBarLeft,FoodBarTop-5,9,9,9,9,9,9);
         Render.text(guiGraphics, String.valueOf(player.getFoodData().getFoodLevel()),FoodBarLeft+9,FoodBarTop-4,0xD08F4A);
-        if (livingEntity != null)guiGraphics.pose().translate(0,6,0);
+        if (livingEntity != null)Render.translate(guiGraphics,0,6,0);
         Render.popPose(guiGraphics);
     }
     private static void DefenseRender(GuiGraphics guiGraphics, int left ,int top){
