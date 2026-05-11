@@ -1,6 +1,7 @@
 package com.dragon826307.lostcity.client.light_puzzle;
 
 import com.dragon826307.lostcity.client.LostCitierClient;
+import com.dragon826307.lostcity.client.util.Render;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
@@ -94,19 +95,19 @@ public class LightPuzzleGui extends Screen {
     @Override
     public void render(GuiGraphics guiGraphics, int i, int j, float f) {
         super.render(guiGraphics, i, j, f);
-        guiGraphics.pose().pushMatrix();
-        guiGraphics.pose().translate(this.width-97,26);
-        guiGraphics.pose().scale(0.9f,0.9f);
-        guiGraphics.drawString(this.font,MESSAGE_0, 0, 0,0xFFFFFFFF);
-        guiGraphics.drawString(this.font,MESSAGE_3, 0, 30,0xFFFFFFFF);
-        guiGraphics.drawString(this.font,MESSAGE_4, 0, 40,0xFFFFFFFF);
-        guiGraphics.drawString(this.font,MESSAGE_5, 0, 50,0xFFFFFFFF);
-        guiGraphics.pose().scale(0.65f,0.65f);
-        guiGraphics.drawString(this.font,MESSAGE_1, 0, 20,0xFFFFFFFF);
-        guiGraphics.drawString(this.font,MESSAGE_2, 0, 30,0xFFFFFFFF);
-        guiGraphics.pose().translate(-this.width*0.8547f+132, (float) (this.height*0.8547f-52-Size*13.8));
-        guiGraphics.drawString(this.font,Component.translatable("lostcitier.light_puzzle.current_size",Size),0,0,0xFFFFFFFF);
-        guiGraphics.pose().popMatrix();
+        Render.pushPose(guiGraphics);
+        Render.translate(guiGraphics,this.width-97,26,1);
+        Render.scale(guiGraphics,0.9f,0.9f,1);
+        Render.text(guiGraphics,MESSAGE_0, 0, 0,0xFFFFFF);
+        Render.text(guiGraphics,MESSAGE_3, 0, 30,0xFFFFFF);
+        Render.text(guiGraphics,MESSAGE_4, 0, 40,0xFFFFFF);
+        Render.text(guiGraphics,MESSAGE_5, 0, 50,0xFFFFFF);
+        Render.scale(guiGraphics,0.65f,0.65f,1);
+        Render.text(guiGraphics,MESSAGE_1, 0, 20,0xFFFFFF);
+        Render.text(guiGraphics,MESSAGE_2, 0, 30,0xFFFFFF);
+        Render.translate(guiGraphics,-this.width*0.8547f+132, (this.height*0.8547f-52-Size*13.8),0);
+        Render.text(guiGraphics,Component.translatable("lostcitier.light_puzzle.current_size",Size),0,0,0xFFFFFF);
+        Render.popPose(guiGraphics);
     }
 
     @Override
