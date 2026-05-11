@@ -1,14 +1,17 @@
 {
-	"required": true,
-	"package": "com.dragon826307.lostcity.client.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"client": [
-		"ExampleClientMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
+  "required": true,
+  "package": "com.dragon826307.lostcity.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ChatComponentMixin",
+    "ClientPacketListenerMixin",
+    "GuiMixin",
+    "MinecraftClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
 	}
 }
