@@ -13,11 +13,11 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.HashedStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.*;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraft.world.item.ItemStack;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.Objects;
@@ -29,8 +29,8 @@ public class LostCitierClient implements ClientModInitializer {
     public static boolean TRY_TO_CHECK_STATUS_FORM_MENU = false;
     public static final int CHECK_TIMEOUT_MILLIS_SECONDS = 500;
     public static boolean debugMode = false;
-    public static boolean[] isOnDungeon = {false};
-    public static boolean[] isGaming = {false};
+    public static final boolean[] isOnDungeon = {false};
+    public static final boolean[] isGaming = {false};
     protected static Minecraft minecraft ;
     public static final String mod_id = "lostcitier";
     public static final Component ModID = Component.empty().append("[").append(Component.literal("LostCitier").withStyle(ChatFormatting.BLUE,ChatFormatting.BOLD)).append("]");
@@ -85,7 +85,7 @@ public class LostCitierClient implements ClientModInitializer {
     }
     public static void menuEngagement(ClientboundOpenScreenPacket clientboundOpenScreenPacket) {
         //noinspection DataFlowIssue
-        minecraft.getConnection().send(new ServerboundContainerClickPacket(clientboundOpenScreenPacket.getContainerId(),minecraft.player.containerMenu.getStateId(), (short) 10, (byte) 0,ClickType.PICKUP,new Int2ObjectOpenHashMap<>(), HashedStack.EMPTY));
+        minecraft.getConnection().send(new ServerboundContainerClickPacket(clientboundOpenScreenPacket.getContainerId(),minecraft.player.containerMenu.getStateId(), (short) 10, (byte) 0,ClickType.PICKUP, ItemStack.EMPTY,new Int2ObjectOpenHashMap<>()));
         minecraft.getConnection().send(new ServerboundContainerClosePacket(clientboundOpenScreenPacket.getContainerId()));
     }
 }
