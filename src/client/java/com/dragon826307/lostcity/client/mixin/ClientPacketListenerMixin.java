@@ -1,8 +1,10 @@
 package com.dragon826307.lostcity.client.mixin;
 
 import com.dragon826307.lostcity.client.LostCitierClient;
+import com.dragon826307.lostcity.client.util.ChatMessageEdit;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.network.protocol.game.ClientboundOpenScreenPacket;
+import net.minecraft.network.protocol.game.ClientboundSystemChatPacket;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -16,5 +18,9 @@ public class ClientPacketListenerMixin {
             LostCitierClient.menuEngagement(clientboundOpenScreenPacket);
             ci.cancel();
         }
+    }
+    @Inject(method = "handleSystemChat",at = @At("HEAD"), cancellable = true)
+    private void handleSystemMessage(ClientboundSystemChatPacket clientboundSystemChatPacket, CallbackInfo ci) {
+        ChatMessageEdit.addMessage(clientboundSystemChatPacket.content(),ci);
     }
 }
