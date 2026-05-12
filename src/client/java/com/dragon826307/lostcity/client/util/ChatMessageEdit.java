@@ -1,27 +1,18 @@
-package com.dragon826307.lostcity.client.mixin;
+package com.dragon826307.lostcity.client.util;
 
 import com.dragon826307.lostcity.client.LostCitierClient;
 import com.dragon826307.lostcity.client.hud_bars.HudStatusAndBars;
-import net.minecraft.client.gui.components.ChatComponent;
 import net.minecraft.network.chat.Component;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Mixin(ChatComponent.class)
-public class ChatComponentMixin {
-    @Unique
+public class ChatMessageEdit {
     private static int cancel_count = 0;
-    @Unique
     private static final boolean[] checking = new boolean[256];
-    @Inject(method = "addMessage(Lnet/minecraft/network/chat/Component;)V",at = @At("HEAD"), cancellable = true)
-    private void addMessage(Component component, CallbackInfo ci){
+    public static void addMessage(Component component, CallbackInfo ci){
         LostCitierClient.TRY_TO_CHECK_SERVER = System.currentTimeMillis()-LostCitierClient.check_sub_server_time < LostCitierClient.CHECK_TIMEOUT_MILLIS_SECONDS;
         if (LostCitierClient.TRY_TO_CHECK_SERVER) {
             Matcher matcher = Pattern.compile("\\s([a-zA-Z\\d]+[。.])$").matcher(component.getString());
