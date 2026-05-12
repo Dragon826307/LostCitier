@@ -29,8 +29,8 @@ public class LostCitierClient implements ClientModInitializer {
     public static boolean TRY_TO_CHECK_STATUS_FORM_MENU = false;
     public static final int CHECK_TIMEOUT_MILLIS_SECONDS = 500;
     public static boolean debugMode = false;
-    public static boolean[] isOnDungeon = {false};
-    public static boolean[] isGaming = {false};
+    public static final boolean[] isOnDungeon = {false};
+    public static final boolean[] isGaming = {false};
     protected static Minecraft minecraft ;
     public static final String mod_id = "lostcitier";
     public static final Component ModID = Component.empty().append("[").append(Component.literal("LostCitier").withStyle(ChatFormatting.BLUE,ChatFormatting.BOLD)).append("]");
