@@ -15,8 +15,7 @@ public class LightPuzzleGui extends Screen {
     protected static int Size = 3,s = 3;
     private int PosX;
     private int PosY;
-    protected static int[][] light = new int[15][15];
-    protected static boolean isAble = true;
+    protected static final int[][] light = new int[15][15];
     public LightPuzzleGui(Component title) {
         super(title);
     }
@@ -129,7 +128,6 @@ public class LightPuzzleGui extends Screen {
                 default -> "X";
             }));
         }).size(14, 14).pos(PosX+x*16, PosY+y*16).build();
-        button.active = isAble;
         this.addRenderableWidget(button);
     }
 }
